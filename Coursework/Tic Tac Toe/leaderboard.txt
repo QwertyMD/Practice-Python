@@ -1,1 +1,0 @@
-{"Geralt": 2, "Theon": 0, "Aurora": -1}
