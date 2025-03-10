@@ -1,12 +1,9 @@
 def primeCheck(n):
-    if n < 2:
-        return "Neither Prime or Composite"
-    else:
-        count = 0
-        for i in range(1, n+1):
-            if n % i == 0:
-                count += 1
-        return "Prime" if count == 2 else "Composite"
+    count = 0
+    for i in range(1, n + 1):
+        count += 1 if n % i == 0 else 0
+    return count == 2
 
-num = int(input("Enter a number: "))
-print(primeCheck(num))
+if __name__ == "__main__":
+    num = int(input("Enter a number: "))
+    print("Neither Prime or Composite") if num < 2 else print("Prime") if primeCheck(num) else print("Composite")
