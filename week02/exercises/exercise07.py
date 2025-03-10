@@ -7,5 +7,8 @@ def decToBin(n):
     return lst
 
 num = int(input("Enter a number: "))
-for i in decToBin(num):
-    print(i, end="")
+if num == 0:
+    print(0)
+else:
+    for i in decToBin(num):
+        print(i, end="")
