@@ -2,7 +2,7 @@
 ## Student ID: 2505814
 
 ## Title: GP Sequence Generator
-## Description: This program generates a sequence of powers of 2 from 2^1 to 2^20.
+## Description: This program generates a sequence: 2,4,8,16,32,... containing the first 20 terms.
 
 def method_one():
     """

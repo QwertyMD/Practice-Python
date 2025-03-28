@@ -2,7 +2,7 @@
 ## Student ID: 2505814
 
 ## Title: AP Sequence Generator
-## Description: This program generates a sequence of numbers from 0 to 100 that are divisible by 4.
+## Description: This program generates a sequence: 0,4,8,,12,16,... containing the first 100 terms.
 
 def sequence():
     """
@@ -13,12 +13,10 @@ def sequence():
     """
     # Initialize an empty list to store the sequence
     seq = []
-    # Iterate over the range of numbers from 0 to 100
-    for i in range(101):
-        # Check if the current number is divisible by 4
-        if i % 4 == 0:
-            # If true, append the number to the sequence list
-            seq.append(i)
+    # Iterate over the range of numbers from 0 to 99
+    for i in range(100):
+        # Append 4 times the number to the sequence list
+        seq.append(4 * i)
     # Return the generated sequence
     return seq
 
