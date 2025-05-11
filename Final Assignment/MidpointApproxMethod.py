@@ -28,7 +28,8 @@ def plot_function(func, a, b):
 
 
 def midpoint_approx(func, a, b, N):
-    """Compute the Midpoint Approximation of Definite Integral of a function over the interval [a,b].
+    """Compute the Midpoint Approximation of Definite Integral
+    of a function over the interval [a,b].
 
     Parameters
     ----------
@@ -64,11 +65,11 @@ if __name__ == "__main__":
     antiderivative_2 = lambda x: np.exp(x)  # Your code goes here
 
     # End points for 1st Function
-    a1 = 1
-    b1 = 3  # Change the values as required
+    a1 = 0
+    b1 = 5  # Change the values as required
     # End points for 2nd Function
-    a2 = -2
-    b2 = 4  # Change the values as required
+    a2 = 0
+    b2 = 5  # Change the values as required
 
     # Call the function to Plot the graph of the functions
     # Your code goes here
@@ -76,9 +77,9 @@ if __name__ == "__main__":
     plot_function(func_2, a2, b2)
 
     # Number of partition for 1st Function
-    N1 = 100  # Change the value as required
+    N1 = 500  # Change the value as required
     # Number of partition for 2nd Function
-    N2 = 100  # Change the value as required
+    N2 = 500  # Change the value as required
 
     # Call midpoint_method to compute Midpoint Approximation:
     midpoint_approx_1 = midpoint_approx(func_1, a1, b1, N1)  # Your code for 1st function
