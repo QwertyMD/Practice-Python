@@ -83,13 +83,13 @@ if __name__ == "__main__":
     # Call plot_function to plot graph of the function
     # Your code goes here
     plot_function(func1, 1, 3)  # For first function
-    plot_function(func2, -2, 4)  # For second function
+    plot_function(func2, 1, 3)  # For second function
 
     # Set the interval [a, b] for the search
     a_1 = 1
     b_1 = 3  # For first root (change the values as required)
-    a_2 = -2
-    b_2 = 4  # For second root (change the values as required)
+    a_2 = 1
+    b_2 = 3  # For second root (change the values as required)
 
     # Call the bisection method
     our_root_1 = bisection_method(func1, a_1, b_1)  # your code goes here

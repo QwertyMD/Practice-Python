@@ -87,7 +87,7 @@ if __name__ == "__main__":
     # Call plot_function to plot graph of the function
     # Your code goes here
     plot_function(func1, 1, 3)  # For first function
-    plot_function(func2, -2, 4)  # For second function
+    plot_function(func2, 1, 3)  # For second function
 
     x0 = 1  # Initial guess for 1st (change the value as required)
     # Call the Newton's method for 1st root
