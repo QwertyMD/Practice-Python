@@ -86,10 +86,10 @@ if __name__ == "__main__":
 
     # Call plot_function to plot graph of the function
     # Your code goes here
-    plot_function(func1, 1, 3)  # For first function
-    plot_function(func2, 1, 3)  # For second function
+    # plot_function(func1, 1, 3)  # For first function
+    # plot_function(func2, 1, 3)  # For second function
 
-    x0 = 1  # Initial guess for 1st (change the value as required)
+    x0 = 2  # Initial guess for 1st (change the value as required)
     # Call the Newton's method for 1st root
     our_root_1 = newton_method(func1, grad1, x0)  # Your code goes here
 
@@ -98,7 +98,7 @@ if __name__ == "__main__":
     sp_root_1 = sp_result_1.x.item()
 
     # Call the Newton's method for 2nd root
-    x0 = 2  # Initial guess for 2nd root (change the value as required)
+    x0 = 3  # Initial guess for 2nd root (change the value as required)
     our_root_2 = newton_method(func2, grad2, x0)  # Your code goes here
 
     # Call SciPy method (reference method) for 2nd root
