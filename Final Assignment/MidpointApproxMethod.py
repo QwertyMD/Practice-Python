@@ -1,3 +1,4 @@
+# Midpoint Approximation Method
 """
 This script imports essential libraries for numerical computations, 
 and plotting.
@@ -15,7 +16,6 @@ def plot_function(func, a, b):
     This function plot the graph of the input func 
     within the given interval [a,b).
     """
-    # Your code goes here
     x = np.linspace(a, b, 100)
     y = func(x)
     plt.plot(x, y, label="f(x)")
@@ -45,8 +45,6 @@ def midpoint_approx(func, a, b, N):
     float
         Approximation of the definite integral by Midpoint Approximation.
     """
-
-    # Your code goes here
     h = (b - a) / N
     x = np.linspace(a + h / 2, b - h / 2, N)
     result = h * np.sum(func(x))
@@ -57,7 +55,7 @@ if __name__ == "__main__":
     # 1st Function to be integrated
     func_1 = lambda x: x / (x ** 2 + 1)
     # Indefinite Integral of the function
-    antiderivative_1 = lambda x: 0.5 * np.log(x ** 2 + 1)  # Your code goes here
+    antiderivative_1 = lambda x: 0.5 * np.log(x ** 2 + 1)
 
     # 2nd Function to be integrated
     func_2 = lambda x: np.exp(x)
@@ -66,24 +64,23 @@ if __name__ == "__main__":
 
     # End points for 1st Function
     a1 = 0
-    b1 = 5  # Change the values as required
+    b1 = 5
     # End points for 2nd Function
     a2 = 0
-    b2 = 5  # Change the values as required
+    b2 = 5
 
     # Call the function to Plot the graph of the functions
-    # Your code goes here
     plot_function(func_1, a1, b1)
     plot_function(func_2, a2, b2)
 
     # Number of partition for 1st Function
-    N1 = 500  # Change the value as required
+    N1 = 500
     # Number of partition for 2nd Function
-    N2 = 500  # Change the value as required
-
+    N2 = 500
+    
     # Call midpoint_method to compute Midpoint Approximation:
-    midpoint_approx_1 = midpoint_approx(func_1, a1, b1, N1)  # Your code for 1st function
-    midpoint_approx_2 = midpoint_approx(func_2, a2, b2, N2)  # Your code for 2nd function
+    midpoint_approx_1 = midpoint_approx(func_1, a1, b1, N1)
+    midpoint_approx_2 = midpoint_approx(func_2, a2, b2, N2)
 
     # Calculate the true value of the definite integral
     definite_integral_1 = antiderivative_1(b1) - antiderivative_1(a1)  # For 1st Function

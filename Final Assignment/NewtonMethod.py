@@ -1,4 +1,4 @@
-# Root Finding Method
+# Newton's Method
 """
 This script imports essential libraries for numerical computations, 
 optimization, and plotting.
@@ -18,7 +18,6 @@ def plot_function(func, a, b):
     This function plot the graph of the input func 
     within the given interval [a,b).
     """
-    # Your code goes here
     x = np.linspace(a, b, 100)
     y = func(x)
     plt.plot(x, y, label="f(x)")
@@ -56,11 +55,9 @@ def newton_method(func, grad, x0, tol=1e-6, max_iter=100):
         # >>> grad = lambda x: 2*x - 1
         # >>> root = newton_method(fun, grad, 1, max_iter=20)
         """
-    # Main Loop starts here
     iter_count = 1
     while iter_count <= max_iter:
-        # Your code goes here
-        if abs(grad(x0) <= tol):
+        if abs(grad(x0)) <= 1e-12:
             print("Math Error! Found root may not be correct.")
             return x0
         x1 = x0 - func(x0) / grad(x0)
@@ -73,41 +70,37 @@ def newton_method(func, grad, x0, tol=1e-6, max_iter=100):
     return x0
 
 
-# Main Driver Function:
 if __name__ == "__main__":
-    # Define the 1st Function for which the root is to be found
-    func1 = lambda x: x ** 2 - x - 1
-    # Define the gradient of the Function
-    grad1 = lambda x: 2 * x - 1
+    # func = lambda x: x ** 2 - x - 1  # First Function
+    # grad = lambda x: 2 * x - 1  # Gradient of first function
 
-    # Uncomment the next two lines to use the 2nd Function
-    func2 = lambda x: x ** 3 - x ** 2 - 2 * x + 1
-    grad2 = lambda x: 3 * x ** 2 - 2 * x - 2
+    func = lambda x: x ** 3 - x ** 2 - 2 * x + 1  # Second Function
+    grad = lambda x: 3 * x ** 2 - 2 * x - 2  # Gradient of second function
 
-    # Call plot_function to plot graph of the function
-    # Your code goes here
-    # plot_function(func1, 1, 3)  # For first function
-    # plot_function(func2, 1, 3)  # For second function
+    plot_function(func, -2, 3)
 
-    x0 = 2  # Initial guess for 1st (change the value as required)
-    # Call the Newton's method for 1st root
-    our_root_1 = newton_method(func1, grad1, x0)  # Your code goes here
-
-    # Call SciPy method (reference method) for 1st root
-    sp_result_1 = sp.optimize.root(func1, x0)
+    # For first root
+    x0 = -1.3  # Initial guess for 1st root
+    our_root_1 = newton_method(func, grad, x0)
+    sp_result_1 = sp.optimize.root(func, x0)
     sp_root_1 = sp_result_1.x.item()
-
-    # Call the Newton's method for 2nd root
-    x0 = 3  # Initial guess for 2nd root (change the value as required)
-    our_root_2 = newton_method(func2, grad2, x0)  # Your code goes here
-
-    # Call SciPy method (reference method) for 2nd root
-    sp_result_2 = sp.optimize.root(func2, x0)
-    sp_root_2 = sp_result_2.x.item()
-
-    # Print the result
     print(f"1st root found by Newton's Method = {our_root_1:.8f}")
     print(f"1st root found by SciPy = {sp_root_1:.8f}")
+
+    # For second root
     print()
+    x0 = 0.4  # Initial guess for 2nd root
+    our_root_2 = newton_method(func, grad, x0)
+    sp_result_2 = sp.optimize.root(func, x0)
+    sp_root_2 = sp_result_2.x.item()
     print(f"2nd root found by Newton's Method = {our_root_2:.8f}")
     print(f"2nd root found by SciPy = {sp_root_2:.8f}")
+    
+    # For third root
+    print()
+    x0 = 1.8  # Initial guess for 3rd root
+    our_root_3 = newton_method(func, grad, x0)
+    sp_result_3 = sp.optimize.root(func, x0)
+    sp_root_3 = sp_result_3.x.item()
+    print(f"3rd root found by Newton's Method = {our_root_3:.8f}")
+    print(f"3rd root found by SciPy = {sp_root_3:.8f}")

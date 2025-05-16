@@ -1,3 +1,4 @@
+# Trapezoidal Approximation Method
 """
 This script imports essential libraries for numerical computations, 
 and plotting.
@@ -44,7 +45,6 @@ def trapezoidal_approx(func, a, b, N):
     float
         Approximation of the definite integral by Midpoint Approximation.
     """
-
     dx = (b - a) / N  # Step size
     x = np.linspace(a, b, N + 1)  # Equidistant partition points
     return 0.5 * dx * np.sum(func(x[:-1]) + func(x[1:]))  # Trapezoidal Approximation of Definite Integral
@@ -54,33 +54,32 @@ if __name__ == "__main__":
     # 1st Function to be integrated
     func_1 = lambda x: x / (x ** 2 + 1)
     # Indefinite Integral of the function
-    antiderivative_1 = lambda x: 0.5 * np.log(x ** 2 + 1)  # Your code goes here
+    antiderivative_1 = lambda x: 0.5 * np.log(x ** 2 + 1)
 
     # 2nd Function to be integrated
     func_2 = lambda x: np.exp(x)
     # Indefinite Integral of the function
-    antiderivative_2 = lambda x: np.exp(x)  # Your code goes here
+    antiderivative_2 = lambda x: np.exp(x)
 
     # End points for 1st Function
     a1 = 0
-    b1 = 5  # Change the values as required
+    b1 = 5
     # End points for 2nd Function
     a2 = 0
-    b2 = 5  # Change the values as required
+    b2 = 5
 
     # Call the function to Plot the graph of the functions
-    # Your code goes here
     plot_function(func_1, a1, b1)
     plot_function(func_2, a2, b2)
 
     # Number of partition for 1st Function
-    N1 = 500  # Change the value as required
+    N1 = 500
     # Number of partition for 2nd Function
-    N2 = 500  # Change the value as required
+    N2 = 500
 
     # Call midpont_method to compute Trapezoidal Approximation:
-    trapezoidal_approx_1 = trapezoidal_approx(func_1, a1, b1, N1)  # Your code for 1st function
-    trapezoidal_approx_2 = trapezoidal_approx(func_2, a2, b2, N2)  # Your code for 2nd function
+    trapezoidal_approx_1 = trapezoidal_approx(func_1, a1, b1, N1)
+    trapezoidal_approx_2 = trapezoidal_approx(func_2, a2, b2, N2)
 
     # Calculate the true value of the definite integral
     definite_integral_1 = antiderivative_1(b1) - antiderivative_1(a1)  # For 1st Function

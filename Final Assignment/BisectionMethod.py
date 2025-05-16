@@ -1,4 +1,4 @@
-# Root Finding Method
+# Bisection Method
 """
 This script imports essential libraries for numerical computations, 
 optimization, and plotting.
@@ -18,7 +18,6 @@ def plot_function(func, a, b):
     This function plot the graph of the input func 
     within the given interval [a,b).
     """
-    # Your code goes here
     x = np.linspace(a, b, 100)
     y = func(x)
     plt.plot(x, y, label="f(x)")
@@ -48,20 +47,15 @@ def bisection_method(func, a, b, tol=1e-6, max_iter=100):
     # >>> fun = lambda x: x**2 - x - 1
     # >>> root = bisection_method(fun, 1, 2, max_iter=20)
     """
-
-    # Check if the interval is valid (signs of f(a) and f(b) are different)
-    # Your code goes here
     if func(a) * func(b) >= 0 or a >= b:
         raise ValueError("The function must have different signs at a and b.")
 
-    # Main loop starts here
     iter_count = 1
     while iter_count <= max_iter:
-        # your code goes here
         c = (a + b) / 2
         fa = func(a)
         fc = func(c)
-        if abs(fc) < tol or (b - a) <= tol:
+        if abs(fc) <= tol or (b - a) <= tol:
             return c
         iter_count += 1
         if fa * fc > 0:
@@ -73,40 +67,40 @@ def bisection_method(func, a, b, tol=1e-6, max_iter=100):
     return c
 
 
-# Example usage:
 if __name__ == "__main__":
-    # Define the function for which the root is to be found
-    func1 = lambda x: x ** 2 - x - 1  # First Function
+    # func = lambda x: x ** 2 - x - 1  # First Function
+    func = lambda x: x ** 3 - x ** 2 - 2 * x + 1  # Second Function
 
-    # Uncomment the below line to use the Second Function
-    func2 = lambda x: x ** 3 - x ** 2 - 2 * x + 1  # Second Function
-    # Call plot_function to plot graph of the function
-    # Your code goes here
-    # plot_function(func1, 1, 3)  # For first function
-    # plot_function(func2, 1, 3)  # For second function
+    plot_function(func, -2, 3)
 
-    # Set the interval [a, b] for the search
-    a_1 = 1
-    b_1 = 2  # For first root (change the values as required)
-    a_2 = 1
-    b_2 = 2  # For second root (change the values as required)
-
-    # Call the bisection method
-    our_root_1 = bisection_method(func1, a_1, b_1)  # your code goes here
-    our_root_2 = bisection_method(func2, a_2, b_2)  # your code goes here
-
-    # Call SciPy method root, which we consider as a reference method.
+    # For first root
+    a_1 = -2
+    b_1 = -1
+    our_root_1 = bisection_method(func, a_1, b_1)
     x0 = (a_1 + b_1) / 2
-    sp_result_1 = sp.optimize.root(func1, x0)
+    sp_result_1 = sp.optimize.root(func, x0)
     sp_root_1 = sp_result_1.x.item()
-
-    x0 = (a_2 + b_2) / 2
-    sp_result_2 = sp.optimize.root(func2, x0)
-    sp_root_2 = sp_result_2.x.item()
-
-    # Print the result
     print(f"1st root found by Bisection Method = {our_root_1:.8f}")
     print(f"1st root found by SciPy = {sp_root_1:.8f}")
+
+    # For second root
     print()
+    a_2 = 0
+    b_2 = 1
+    our_root_2 = bisection_method(func, a_2, b_2)
+    x0 = (a_2 + b_2) / 2
+    sp_result_2 = sp.optimize.root(func, x0)
+    sp_root_2 = sp_result_2.x.item()
     print(f"2nd root found by Bisection Method = {our_root_2:.8f}")
     print(f"2nd root found by SciPy = {sp_root_2:.8f}")
+
+    # For third root
+    print()
+    a_3 = 1
+    b_3 = 2
+    our_root_3 = bisection_method(func, a_3, b_3)
+    x0 = (a_3 + b_3) / 2
+    sp_result_3 = sp.optimize.root(func, x0)
+    sp_root_3 = sp_result_3.x.item()
+    print(f"3rd root found by Bisection Method = {our_root_3:.8f}")
+    print(f"3rd root found by SciPy = {sp_root_3:.8f}")
