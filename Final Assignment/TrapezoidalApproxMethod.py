@@ -20,6 +20,7 @@ def plot_function(func, a, b):
     x = np.linspace(a, b, 100)
     y = func(x)
     plt.plot(x, y, label="f(x)")
+    plt.fill_between(x, y, alpha=0.2)
     plt.title("Function Plot")
     plt.xlabel("x")
     plt.ylabel("f(x)")

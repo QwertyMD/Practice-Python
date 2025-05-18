@@ -21,6 +21,7 @@ def plot_function(func, a, b):
     x = np.linspace(a, b, 100)
     y = func(x)
     plt.plot(x, y, label="f(x)")
+    plt.axhline(0, color='red', ls="--", lw=1)
     plt.title("Function Plot")
     plt.xlabel("x")
     plt.ylabel("f(x)")
